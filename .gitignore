@@ -32,6 +32,7 @@ build/
 work/
 logs/
 venv/
+Milvus/
 sentence-transformers_paraphrase-multilingual-mpnet-base-v2/
 BAAI--bge-reranker-large/
 !**/src/main/**/build/
