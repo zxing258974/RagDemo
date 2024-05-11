@@ -1,0 +1,22 @@
+JSP内置对象是一组自动可用的对象，这些对象代表了与请求、响应和JSP页面容器环境相关的各种对象。你不需要显式地创建这些对象，它们由JSP容器提供。这些内置对象提供了对HTTP请求-响应模型的直接支持，并且简化了一些常见的任务比如获取用户数据，跟踪会话等。
+JSP 内置对象列表
+request: HttpServletRequest 对象，表示客户端发起的请求。
+response: HttpServletResponse 对象，表示对客户端的响应。
+out: JspWriter 对象，用于向客户端发送输出。
+session: HttpSession 对象，用于管理与特定用户的会话。
+application: ServletContext 对象，代表整个Web应用程序的上下文。
+config: ServletConfig 对象，包含了Servlet的初始化参数。
+pageContext: PageContext 对象，提供了对JSP页面所有对象和命名空间的访问。
+page: 表示当前的Servlet实例，通常对用户不是太有用。
+exception: 表示JSP页面中发生的异常对象。
+域（Scopes）
+在JSP中，域指的是数据可以存活的时间和范围，也就是说，在域中存放的对象可以被Web应用程序中的其他组件访问。JSP 支持以下四种域：
+Page Scope: 仅限于本页内可用。
+Request Scope: 与一个请求的生命周期一致。
+Session Scope: 与用户的一个会话期间一致。
+Application Scope: 对所有用户的会话期间一致，只要应用程序启动，数据就会存在。
+作用域从小到大的排序是：
+Page Scope：范围最小，只在当前页面有效，当页面处理完毕后，page scope 中的属性就不再可用了。
+Request Scope：范围较小，只在一次请求中有效，请求被转发到其他资源（比如另一个JSP，Servlet等）时，这些属性仍然可用。
+Session Scope：范围较大，跨越多次请求，在一个用户的多次请求之间共享数据，通常用于维护用户会话期间的状态。
+Application Scope：范围最大，跨越整个Web应用程序，所有的用户共享在此域中的属性，只要应用程序启动，这些属性就一直存在。
