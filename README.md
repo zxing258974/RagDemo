@@ -128,5 +128,5 @@ yarn dev
 
 请打开浏览器访问 http://127.0.0.1:3000
 
-详细技术文档请参考 Rag.ipynb 文件
+详细技术文档请参考 [Rag.ipynb](./Rag.ipynb) 文件
 
