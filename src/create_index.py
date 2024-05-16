@@ -15,7 +15,7 @@ def create_index():
         FieldSchema(name="document_ebm", dtype=DataType.FLOAT_VECTOR, dim=1024),
         FieldSchema(name="document_text", dtype=DataType.VARCHAR, max_length=65535),
     ]
-    schema = CollectionSchema(fields=fields, description="database")
+    schema = CollectionSchema(fields=fields)
     # 创建集合
     collection = Collection(name='documents', schema=schema, using='main')
     # 添加 HNSW 索引，索引优势
