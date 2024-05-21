@@ -7516,8 +7516,109 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Milvus-%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93">Milvus 向量数据库<a class="anchor-link" href="#Milvus-%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93">¶</a></h2><p>当前使用版本 <span style="color: red">v2.2.11</span></p>
-<p>首先需要在向量数据库中创建集合并添加索引</p>
+<h2 id="%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C">准备工作<a class="anchor-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C">¶</a></h2><p>智谱API申请，大家可以请前往 <a href="https://open.bigmodel.cn/dev/api#glm-3-turbo">https://open.bigmodel.cn/dev/api#glm-3-turbo</a> 申请智谱API</p>
+<p>安装 Milvus 向量库</p>
+<h3 id="%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83">基础环境<a class="anchor-link" href="#%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83">¶</a></h3><ul>
+<li>python 3.9.6</li>
+<li>nodejs v18.17.1</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Milvus-%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93">Milvus 向量数据库<a class="anchor-link" href="#Milvus-%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93">¶</a></h2><p>Milvus 是一个高度灵活、可靠且速度极快的云原生开源向量数据库。它为 embedding 相似性搜索和 AI 应用程序提供支持，并努力使每个组织都可以访问向量数据库。 Milvus 可以存储、索引和管理由深度神经网络和其他机器学习（ML）模型生成的十亿级别以上的 embedding 向量。
+它具备高可用、高性能、易拓展的特点，用于海量向量数据的实时召回。</p>
+<h3 id="%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9%E4%BD%BF%E7%94%A8-Milvus">为什么选择使用 Milvus<a class="anchor-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9%E4%BD%BF%E7%94%A8-Milvus">¶</a></h3><ul>
+<li>高性能：性能高超，可对海量数据集进行向量相似度检索。</li>
+<li>高可用、高可靠：Milvus 支持在云上扩展，其容灾能力能够保证服务高可用。</li>
+<li>混合查询：Milvus 支持在向量相似度检索过程中进行标量字段过滤，实现混合查询。</li>
+<li>开发者友好：支持多语言、多工具的 Milvus 生态系统。</li>
+</ul>
+<p>安装 Milvus 请参考 <a href="https://milvus.io/docs/install_standalone-docker.md">https://milvus.io/docs/install_standalone-docker.md</a> 官方文档</p>
+<p>当前使用版本 <span style="color: red">v2.2.11</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="LangChain-%E6%A1%86%E6%9E%B6">LangChain 框架<a class="anchor-link" href="#LangChain-%E6%A1%86%E6%9E%B6">¶</a></h2><p>LangChain 是一个开源框架，用于构建基于大型语言模型（LLM）的应用程序。LangChain 提供各种工具和抽象，以提高模型生成的信息的定制性、准确性和相关性。例如，开发人员可以使用 LangChain 组件来构建新的提示链或自定义现有模板。LangChain 还包括一些组件，可让 LLM 无需重新训练即可访问新的数据集。</p>
+<p>当前项目使用了 LangChain 中的文档加载器、ChatZhipuAI 组件。LangChain 已经对接了智谱的大语言模型，可以直接使用。</p>
+<p>当前使用版本 <span style="color: red">0.1.17</span></p>
+<h4 id="LangChain-%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9D%97%E6%A6%82%E8%A7%88">LangChain 核心模块概览<a class="anchor-link" href="#LangChain-%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9D%97%E6%A6%82%E8%A7%88">¶</a></h4><p>目前围绕 LangChain 框架核心模块主要有六个</p>
+<ul>
+<li><ol>
+<li>LLM 和提示：LangChain 使管理提示、优化它们以及为所有 LLM 创建通用界面变得容易。此外，它还包括一些用于处理 LLM 的便捷实用程序。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>链(Chain)：这些是对 LLM 或其他实用程序的调用序列。LangChain 为链提供标准接口，与各种工具集成，为流行应用提供端到端的链。</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>数据增强生成：LangChain 使链能够与外部数据源交互以收集生成步骤的数据。例如，它可以帮助总结长文本或使用特定数据源回答问题。</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>Agents：Agents 让 LLM 做出有关行动的决定，采取这些行动，检查结果，并继续前进直到工作完成。LangChain 提供了代理的标准接口，多种代理可供选择，以及端到端的代理示例。</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>内存：LangChain 有一个标准的内存接口，有助于维护链或代理调用之间的状态。它还提供了一系列内存实现和使用内存的链或代理的示例。</li>
+</ol>
+</li>
+<li><ol start="6">
+<li>评估：很难用传统指标评估生成模型。这就是为什么 LangChain 提供提示和链来帮助开发者自己使用 LLM 评估他们的模型。</li>
+</ol>
+</li>
+</ul>
+<p>文档加载器</p>
+<p><img alt="No description has been provided for this image" src="./image/langchain_file.png" style="width:50%"/></p>
+<p>智谱AI</p>
+<p><img alt="No description has been provided for this image" src="./image/langchain_zhipu.png" style="width:50%"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="%E7%9B%AE%E6%A0%87">目标<a class="anchor-link" href="#%E7%9B%AE%E6%A0%87">¶</a></h2><p>通过将指定文档转换成向量，然后可以根据问题从向量库中查找最相似的文档，并根据文档内容通过AI回答提出的问题。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>可以先看下当前准备的文档信息</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="%E5%88%9B%E5%BB%BA-Milvus-%E5%90%91%E9%87%8F%E5%BA%93%E6%95%B0%E6%8D%AE%E9%9B%86%E5%92%8C%E5%86%99%E5%85%A5%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE">创建 Milvus 向量库数据集和写入向量数据<a class="anchor-link" href="#%E5%88%9B%E5%BB%BA-Milvus-%E5%90%91%E9%87%8F%E5%BA%93%E6%95%B0%E6%8D%AE%E9%9B%86%E5%92%8C%E5%86%99%E5%85%A5%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE">¶</a></h2><p>首先需要在向量数据库中创建集合并添加索引</p>
 </div>
 </div>
 </div>
@@ -7535,11 +7636,11 @@ a.anchor-link {
 
 <span class="k">def</span> <span class="nf">create_index</span><span class="p">():</span>
     <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="n">FieldSchema</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"id"</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">DataType</span><span class="o">.</span><span class="n">INT64</span><span class="p">,</span> <span class="n">is_primary</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">auto_id</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
-        <span class="n">FieldSchema</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"document_ebm"</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">DataType</span><span class="o">.</span><span class="n">FLOAT_VECTOR</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1024</span><span class="p">),</span>
-        <span class="n">FieldSchema</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"document_text"</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">DataType</span><span class="o">.</span><span class="n">VARCHAR</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">65535</span><span class="p">),</span>
+        <span class="n">FieldSchema</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"id"</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">DataType</span><span class="o">.</span><span class="n">INT64</span><span class="p">,</span> <span class="n">is_primary</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">auto_id</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="c1"># 自增ID</span>
+        <span class="n">FieldSchema</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"document_ebm"</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">DataType</span><span class="o">.</span><span class="n">FLOAT_VECTOR</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1024</span><span class="p">),</span> <span class="c1"># 转换后的向量字段，我们使用的是智谱的向量模型，它的维度是1024，也可以采用开源模型，每种模型的维度可能不一样，比如还有有768位度或者更高维度的向量模型</span>
+        <span class="n">FieldSchema</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"document_text"</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">DataType</span><span class="o">.</span><span class="n">VARCHAR</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">65535</span><span class="p">),</span> <span class="c1"># 原始文档信息</span>
     <span class="p">]</span>
-    <span class="n">schema</span> <span class="o">=</span> <span class="n">CollectionSchema</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="n">fields</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">"database"</span><span class="p">)</span>
+    <span class="n">schema</span> <span class="o">=</span> <span class="n">CollectionSchema</span><span class="p">(</span><span class="n">fields</span><span class="o">=</span><span class="n">fields</span><span class="p">)</span>
     <span class="c1"># 创建集合</span>
     <span class="n">collection</span> <span class="o">=</span> <span class="n">Collection</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'documents'</span><span class="p">,</span> <span class="n">schema</span><span class="o">=</span><span class="n">schema</span><span class="p">,</span> <span class="n">using</span><span class="o">=</span><span class="s1">'main'</span><span class="p">)</span>
     <span class="c1"># 添加索引</span>
@@ -7576,20 +7677,25 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B">索引类型<a class="anchor-link" href="#%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B">¶</a></h3><ul>
+<li>HNSW</li>
+<li>FLAT</li>
+<li>IVF_FLAT</li>
+<li>RNSG
+等</li>
+</ul>
 <h3 id="HNSW-%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B">HNSW 索引类型<a class="anchor-link" href="#HNSW-%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B">¶</a></h3><p>HNSW 是一种基于图的索引算法。它按照一定的规则为图像构建多层导航结构。在这种结构中，上层更加稀疏，节点之间的距离更远；较低的层更密集，节点之间的距离更近。搜索从最上层开始，找到本层中距离目标最近的节点，然后进入下一层开始另一次搜索。经过多次迭代，可以快速逼近目标位置。</p>
-<p>为了提高性能，HNSW 将图每层节点的最大度数限制为 M 。此外，还可以使用 efConstruction （构建索引时）或 ef （搜索目标时）指定搜索范围。</p>
-<p>使用场景</p>
+<p>特点</p>
 <ul>
 <li>非常高速的查询</li>
-<li>要求召回率尽可能高</li>
-<li>大内存资源</li>
+<li>召回率高、精准度高</li>
+<li>磁盘、内存占用大于原始数据，适用于小数据量，内存充足的计算</li>
 </ul>
-<p>HNSW 索引params参数</p>
-<ul>
-<li>M 节点的最大度数 (2, 2048)</li>
-<li>efConstruction 索引时间内最近邻居的动态列表的大小。较高的 efConstruction 可能会提高索引质量，但代价是增加索引时间。(1, int_max)</li>
+<h3 id="%E5%90%91%E9%87%8F%E7%9B%B8%E4%BC%BC%E5%BA%A6%E7%AE%97%E6%B3%95">向量相似度算法<a class="anchor-link" href="#%E5%90%91%E9%87%8F%E7%9B%B8%E4%BC%BC%E5%BA%A6%E7%AE%97%E6%B3%95">¶</a></h3><ul>
+<li>内积 (IP)</li>
+<li>欧氏距离 (L2)</li>
 </ul>
-<h3 id="IP-%EF%BC%88%E5%86%85%E7%A7%AF%EF%BC%89">IP （内积）<a class="anchor-link" href="#IP-%EF%BC%88%E5%86%85%E7%A7%AF%EF%BC%89">¶</a></h3><p>两个嵌入之间的IP距离</p>
+<h3 id="IP-%E7%94%A8%E4%BA%8E%E8%A1%A1%E9%87%8F%E5%90%91%E9%87%8F%E7%9B%B8%E4%BC%BC%E5%BA%A6%E7%9A%84%E5%BA%A6%E9%87%8F%E7%B1%BB%E5%9E%8B">IP 用于衡量向量相似度的度量类型<a class="anchor-link" href="#IP-%E7%94%A8%E4%BA%8E%E8%A1%A1%E9%87%8F%E5%90%91%E9%87%8F%E7%9B%B8%E4%BC%BC%E5%BA%A6%E7%9A%84%E5%BA%A6%E9%87%8F%E7%B1%BB%E5%9E%8B">¶</a></h3><p>两个嵌入之间的IP距离</p>
 </div>
 </div>
 </div>
@@ -7646,7 +7752,7 @@ a.anchor-link {
 <span class="kn">from</span> <span class="nn">pymilvus</span> <span class="kn">import</span> <span class="n">Collection</span><span class="p">,</span> <span class="n">connections</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
-<span class="n">ZHIPUAI_API_KEY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'ZHIPUAI_API_KEY'</span><span class="p">)</span>
+<span class="n">ZHIPUAI_API_KEY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'ZHIPUAI_API_KEY'</span><span class="p">)</span> <span class="c1"># 替换成您自己的 key</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">ZhipuAI</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="n">ZHIPUAI_API_KEY</span><span class="p">)</span>
 
 <span class="n">connections</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">alias</span><span class="o">=</span><span class="s1">'main'</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"127.0.0.1"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">19530</span><span class="p">)</span>
@@ -7694,6 +7800,17 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="%E5%90%91%E9%87%8F%E8%BD%AC%E6%8D%A2%E5%90%8E%E7%9A%84%E7%BB%93%E6%9E%9C">向量转换后的结果<a class="anchor-link" href="#%E5%90%91%E9%87%8F%E8%BD%AC%E6%8D%A2%E5%90%8E%E7%9A%84%E7%BB%93%E6%9E%9C">¶</a></h4><p><img alt="image.png" src="./image/emb.png"/></p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="%E6%A0%B9%E6%8D%AE%E6%8F%90%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98%E5%9C%A8%E5%90%91%E9%87%8F%E5%BA%93%E4%B8%AD%E6%9F%A5%E6%89%BE%E6%9C%80%E7%9B%B8%E4%BC%BC%E7%9A%84%E7%BB%93%E6%9E%9C">根据提出的问题在向量库中查找最相似的结果<a class="anchor-link" href="#%E6%A0%B9%E6%8D%AE%E6%8F%90%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98%E5%9C%A8%E5%90%91%E9%87%8F%E5%BA%93%E4%B8%AD%E6%9F%A5%E6%89%BE%E6%9C%80%E7%9B%B8%E4%BC%BC%E7%9A%84%E7%BB%93%E6%9E%9C">¶</a></h2><p>Milvus 中的向量相似度搜索会计算查询向量与具有指定相似度度量的集合中的向量之间的距离，并返回最相似的结果。通过指定过滤标量字段或主键字段的布尔表达式，您可以执行混合搜索。</p>
 </div>
 </div>
@@ -7730,6 +7847,53 @@ a.anchor-link {
     <span class="k">return</span> <span class="n">documents</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>匹配结果</p>
+<table>
+<thead>
+<tr>
+<th>问题<div style="width:200px"></div></th>
+<th>文档</th>
+<th>分数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>为什么SQL语句不能写1=1？</td>
+<td>'最近看几个老项目的SQL条件中使用了1=1，想想自己也曾经这样写过，略有感触，特别拿出来说道说道。\n\n编写SQL语句就像炒菜，每一种调料的使用都可能会影响菜品的最终味道，每一个SQL条件的加入也可能会影响查询的执行效率。那么 1=1 存在什么样的问题呢？为什么又会使用呢？\n\n为什么会使用 1=1？\n\n在动态构建SQL查询时，查询条件往往都是动态的，最终执行时可能会使用不同的条件。这时候，他们就会使用“1=1”作为一个始终为真的条件，让接下来的所有条件都可以方便地用“AND”连接起来，就像是搭积木的时候先放一个基座，其他的积木块就都可以在这个基座上叠加...'</td>
+<td>0.6723401546478271</td>
+</tr>
+<tr>
+<td>为什么SQL语句不能写1=1？</td>
+<td>'语言模型生成词元的过程是逐个进行的。可以把语言模型（具体来说，是仅解码器文本Transformer模型，但本文其余部分将其简称为LLM）理解为一个函数，它以词元作为输入并生成一个概率数组，用于表示词汇表中所有词元的概率（通常词汇表中有50-250K词元，每个词元由几个字母组成）。然后，程序根据这些概率从所有词元中进行采样，以指导采样过程，并生成下一个词元，这一过程会重复进行。这意味着，生成文本序列时不可能存在并行性——生成过程可以逐个词元地进行建模。\n\n总的来说，语言模型在处理词元时会进行两种类型的操作：矩阵-向量乘法，其中一个大矩阵（例如8192x8192）与一个向量相乘，得到另一个向量...'</td>
+<td>0.19971448183059692</td>
+</tr>
+<tr>
+<td>为什么SQL语句不能写1=1？</td>
+<td>'大模型第一次达到了「类人」水平，用户可以用自然语言与计算机进行交流了。那么为了达到事半功倍的效果，我们就要精进提问的技巧，这便是Prompt Engineering。如何做呢？要把大模型视为精通某一领域的专业顾问，要以与专业顾问（比如导游，咨询师）对话的角度来看待问题。\n\n比如说马上五一假期了，想要去上海玩，你问大模型『五一假期去上海玩，推荐一些行程』，大模型肯定会给你一个中规中矩的万能日程。这不能怪大模型，如果你如此问一个导游，负责的导游会直接反问你一大堆细节问题，因为这是行程所必须的；或者也是随便推荐一些大家都知道的地方。但肯定 是没有参考价值的...'</td>
+<td>0.19669339060783386</td>
+</tr>
+<tr>
+<td>为什么SQL语句不能写1=1？</td>
+<td>'JSP内置对象是一组自动可用的对象，这些对象代表了与请求、响应和JSP页面容器环境相关的各种对象。你不需要显式地创建这些对象，它们由JSP容器提供。这些内置对象提供了对HTTP请求-响应模型的直接支持，并且简化了一些常见的任务比如获取用户数据，跟踪会话等。\n\nJSP 内置对象列表\n\nrequest: HttpServletRequest 对象，表示客户端发起的请求。\n\nresponse: HttpServletResponse 对象，表示对客户端的响应。\n\nout: JspWriter 对象，用于向客户端发送输出。\n\nsession: HttpSession 对象，用于管理与特定用户的会话。\n\napplication: ServletContext 对象，代表整个Web应用程序的上下文。\n\nconfig: ServletConfig 对象，包含了Servlet的初始化参数。\n\npageContext: PageContext 对象，提供了对JSP页面所有对象和命名空间的访问。\n\npage: 表示当前的Servlet实例，通常对用户不是太有用。\n\nexception: 表示JSP页面中发生的异常对象...'</td>
+<td>0.11639922857284546</td>
+</tr>
+<tr>
+<td>为什么SQL语句不能写1=1？</td>
+<td>'在现代Web开发中，一个Node.js应用的构建往往离不开各种依赖，比如库、辅助工具或其他工具包。以一个典型的React项目为例，当你想为项目添加路由功能时，你需要安装如react-router-dom这样的包。类似这样的需求在开发过程中屡见不鲜，而这就是为什么我们需要一个包管理器来帮助我们管理这些依赖。\n\n默认情况下，Node.js安装时会自带NPM（Node Package Manager），作为最初的包管理工具，它为我们的开发提供了极大的便利。然而，随着项目的不断演进和需求的日益增长，仅仅依赖NPM可能无法完全满足我们的所有需求...'</td>
+<td>0.05798647552728653</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -7816,6 +7980,18 @@ a.anchor-link {
     <span class="p">},</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Demo-%E6%BC%94%E7%A4%BA">Demo 演示<a class="anchor-link" href="#Demo-%E6%BC%94%E7%A4%BA">¶</a></h2><p>可以前往 <a href="https://github.com/zxing258974/RagDemo">https://github.com/zxing258974/RagDemo</a> 下载当前演示项目的源码</p>
+<p>本项目使用了前后端分离，前端使用了 VUE3 ，位于 RagPage/ 目录下。后端使用了 FastApi 框架。更多的项目信息可以参考 README.md 文件</p>
 </div>
 </div>
 </div>
